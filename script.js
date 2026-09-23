@@ -36,14 +36,12 @@
 
   /* ---------- Pix ---------- */
   var pix = String(cfg.pix || "").replace(/\D/g, "");
-  var pixTexto = document.querySelector(".js-pix-texto");
-  if (pixTexto) {
-    pixTexto.textContent = pix.length === 14
-      ? pix.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})$/, "$1.$2.$3/$4-$5")
-      : pix;
-  }
-  var botaoPix = document.querySelector(".js-copiar-pix");
-  if (botaoPix) {
+  var pixFormatado = pix.length === 14
+    ? pix.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})$/, "$1.$2.$3/$4-$5")
+    : pix;
+  document.querySelectorAll(".js-pix-texto").forEach(function (el) { el.textContent = pixFormatado; });
+
+  document.querySelectorAll(".js-copiar-pix").forEach(function (botaoPix) {
     var rotulo = botaoPix.querySelector("span");
     var avisar = function (msg) {
       rotulo.textContent = msg;
@@ -66,7 +64,7 @@
         copiarAntigo();
       }
     });
-  }
+  });
 
   /* ---------- Mural: foto ampliada ---------- */
   var dialogo = document.querySelector(".foto-ampliada");

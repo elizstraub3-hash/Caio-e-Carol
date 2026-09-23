@@ -314,6 +314,77 @@ body.fechado { overflow: hidden; }
 .lista dt { font-family: var(--sans); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; }
 .lista dd { font-size: 19px; font-style: italic; color: var(--tinta-suave); text-align: right; }
 
+/* pagamento antecipado */
+.pagamento {
+  width: 100%;
+  max-width: 340px;
+  margin: 2px 0 30px;
+  padding: 26px 20px 24px;
+  background: var(--salvia-clara);
+  border: 1.5px solid var(--salvia-escura);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.pagamento__selo {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: .28em;
+  margin-right: -.28em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--salvia-escura);
+  padding: 5px 12px;
+  border-radius: 999px;
+}
+.pagamento__titulo {
+  font-size: 25px;
+  font-weight: 500;
+  line-height: 1.2;
+  margin: 14px 0 12px;
+  color: var(--salvia-escura);
+}
+.pagamento__texto {
+  font-size: 18px;
+  line-height: 1.45;
+  color: #3a3a36;
+}
+.pagamento__texto + .pagamento__texto { margin-top: 10px; }
+.pagamento strong { font-weight: 600; color: var(--tinta); }
+.pagamento__exemplo {
+  margin-top: 12px;
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: .04em;
+  color: var(--tinta-suave);
+}
+.pagamento .pix { background: #fff; }
+
+/* passo a passo da confirmação */
+.passos {
+  list-style: none;
+  width: 100%;
+  max-width: 330px;
+  margin-top: 22px;
+  text-align: left;
+}
+.passos li { display: flex; gap: 14px; align-items: flex-start; }
+.passos li + li { margin-top: 14px; }
+.passos span {
+  flex: none;
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--salvia-escura);
+  display: grid; place-items: center;
+  font-family: var(--sans);
+  font-size: 12px;
+  color: var(--salvia-escura);
+  background: #fff;
+}
+.passos p { font-size: 18px; line-height: 1.4; color: #3a3a36; padding-top: 2px; }
+.passos strong { font-weight: 600; color: var(--tinta); }
+
 /* dress code em destaque */
 .dress {
   margin-top: 30px;
