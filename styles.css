@@ -399,6 +399,33 @@ body.fechado { overflow: hidden; }
 .credito a { color: inherit; text-decoration: none; }
 .credito a:hover { color: var(--salvia-escura); }
 
+/* ================= CHUVA DE ROSAS ================= */
+.chuva {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  overflow: hidden;
+}
+.chuva__rosa {
+  position: absolute;
+  top: -60px;
+  will-change: transform;
+  animation: cair linear forwards;
+}
+.chuva__rosa img {
+  width: 100%;
+  height: auto;
+  animation: balancar ease-in-out infinite alternate;
+  filter: drop-shadow(0 2px 3px rgba(60,70,55,.18));
+}
+@keyframes cair { to { transform: translateY(calc(100vh + 120px)); } }
+@keyframes balancar {
+  from { transform: translateX(-22px) rotate(-35deg); }
+  to   { transform: translateX(22px) rotate(35deg); }
+}
+@media (prefers-reduced-motion: reduce) { .chuva { display: none; } }
+
 /* ================= MÚSICA ================= */
 .musica {
   position: fixed;

@@ -36,6 +36,12 @@ Buquês em aquarela (PNG com fundo transparente, convertidos para WebP para carr
 Posição e tamanho ficam em `styles.css` (`.buque--topo`, `.buque--base`, `.buque--rodape`).
 A imagem de prévia (`assets/og-image.jpg`) é gerada a partir de `og/og-template.html`.
 
+## Chuva de rosas
+
+Rosas brancas (recortadas do próprio buquê: `assets/rosa-1.webp` e `rosa-2.webp`) caem pela tela desde a abertura.
+Em `config.js`: `chuvaDeRosas: false` desliga, e `rosas` define quantas caem ao mesmo tempo (padrão 14).
+Quem usa o celular com "reduzir movimento" ativado não vê a animação.
+
 ## Música e fotos
 
 - Música de abertura: `assets/musica.mp3` (Eu e Minha Casa · Julliany Souza & Léo Brandão, comprimida para 96 kbps). Toca quando o convidado toca em **Abrir convite**. Os celulares não deixam tocar som sozinho sem esse toque. O botão redondo no canto pausa ou volta a tocar.

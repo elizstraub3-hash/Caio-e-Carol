@@ -15,6 +15,10 @@ window.CONVITE = {
     "Crianças até 6 anos: \n" +
     "Crianças acima de 6 anos: ",
 
+  // Chuva de rosas: true liga, false desliga. "rosas" = quantas caem ao mesmo tempo.
+  chuvaDeRosas: true,
+  rosas: 14,
+
   // Chave Pix para presentes (só dígitos).
   pix: "25109009000166"
 };

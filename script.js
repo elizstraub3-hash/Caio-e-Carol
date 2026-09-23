@@ -129,3 +129,46 @@
     if (document.hidden && !audio.paused) audio.pause();
   });
 })();
+
+/* ---------- Chuva de rosas ---------- */
+(function () {
+  var cfg = window.CONVITE || {};
+  if (cfg.chuvaDeRosas === false) return;
+  if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  var imagens = ["assets/rosa-1.webp", "assets/rosa-2.webp"];
+  var total = Math.max(1, Math.min(40, cfg.rosas || 14));
+  var chuva = document.createElement("div");
+  chuva.className = "chuva";
+  chuva.setAttribute("aria-hidden", "true");
+  document.body.appendChild(chuva);
+
+  var sortear = function (min, max) { return min + Math.random() * (max - min); };
+
+  var criarRosa = function (atraso) {
+    var rosa = document.createElement("div");
+    var img = document.createElement("img");
+    var tamanho = sortear(18, 40);
+    var duracao = sortear(9, 16);
+    rosa.className = "chuva__rosa";
+    rosa.style.left = sortear(-4, 98) + "vw";
+    rosa.style.width = tamanho + "px";
+    rosa.style.opacity = sortear(.75, 1).toFixed(2);
+    rosa.style.animationDuration = duracao + "s";
+    rosa.style.animationDelay = atraso + "s";
+    img.src = imagens[Math.random() < .5 ? 0 : 1];
+    img.alt = "";
+    img.style.animationDuration = sortear(2.2, 4) + "s";
+    img.style.animationDelay = -sortear(0, 4) + "s";
+    rosa.appendChild(img);
+    // quando termina de cair, nasce outra no topo
+    rosa.addEventListener("animationend", function (e) {
+      if (e.target !== rosa) return;
+      rosa.remove();
+      criarRosa(0);
+    });
+    chuva.appendChild(rosa);
+  };
+
+  for (var i = 0; i < total; i++) criarRosa(sortear(0, 12));
+})();
