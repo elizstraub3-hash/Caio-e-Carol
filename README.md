@@ -28,13 +28,12 @@ Site estático (HTML + CSS + JS), sem banco de dados nem integrações. Pronto p
 
 ## Flores
 
-Elementos em aquarela e traço fino (PNG com fundo transparente, convertidos para WebP para carregar rápido no celular):
+Buquês em aquarela (PNG com fundo transparente, convertidos para WebP para carregar rápido no celular):
 
-- `assets/buque-topo.webp`: buquê do canto superior esquerdo
-- `assets/buque-base.webp`: buquê do canto inferior direito
-- `assets/rosa-traco.webp`: rosa em traço fino
+- `assets/buque-topo.webp`: buquê do canto superior esquerdo da capa
+- `assets/buque-base.webp`: buquê do canto inferior direito da capa (e, espelhado, no rodapé)
 
-Posição e tamanho ficam em `styles.css` (`.buque--topo`, `.buque--base`, `.traco--rosa`).
+Posição e tamanho ficam em `styles.css` (`.buque--topo`, `.buque--base`, `.buque--rodape`).
 A imagem de prévia (`assets/og-image.jpg`) é gerada a partir de `og/og-template.html`.
 
 ## Música e fotos
