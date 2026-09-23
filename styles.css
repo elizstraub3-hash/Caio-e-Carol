@@ -1,0 +1,230 @@
+:root {
+  --papel: #ffffff;
+  --fundo: #f4f3ef;
+  --tinta: #1f1f1d;
+  --tinta-suave: #55554f;
+  --salvia: #8a9e84;
+  --salvia-escura: #5f7359;
+  --moldura: #1f1f1d;
+
+  --script: "Pinyon Script", "Snell Roundhand", cursive;
+  --serif: "Cormorant Garamond", "Times New Roman", serif;
+  --sans: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: var(--fundo);
+  color: var(--tinta);
+  font-family: var(--serif);
+  -webkit-font-smoothing: antialiased;
+}
+
+.pagina {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+}
+
+/* ---------- cartão ---------- */
+.convite {
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+  min-height: min(820px, calc(100dvh - 32px));
+  background: var(--papel);
+  box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 12px 40px rgba(60,70,55,.10);
+  overflow: hidden;
+  display: flex;
+  isolation: isolate;
+}
+
+/* moldura preta discreta */
+.convite::before {
+  content: "";
+  position: absolute;
+  inset: 18px;
+  border: 1px solid var(--moldura);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.flores {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  z-index: 2;
+}
+.flores--topo {
+  width: 74%;
+  top: -2%;
+  right: -7%;
+}
+.flores--base {
+  width: 66%;
+  bottom: -3%;
+  left: -6%;
+}
+
+.conteudo {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 150px 40px 140px;
+}
+
+/* ---------- tipografia ---------- */
+.save {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .42em;
+  text-transform: uppercase;
+  margin-right: -.42em; /* compensa o espaçamento da última letra */
+  color: var(--tinta);
+}
+
+.nomes {
+  font-family: var(--script);
+  font-weight: 400;
+  font-size: clamp(58px, 17vw, 80px);
+  line-height: .95;
+  margin: 22px 0 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.nomes .e {
+  margin: -4px 0 2px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: .42em;
+  line-height: 1.2;
+  color: var(--salvia-escura);
+}
+
+.divisor {
+  display: block;
+  width: 56px;
+  height: 1px;
+  background: var(--tinta);
+  opacity: .5;
+  margin: 6px 0 24px;
+}
+
+.data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+.data__dia {
+  font-variant-numeric: lining-nums;
+  font-size: 46px;
+  font-weight: 500;
+  line-height: 1;
+}
+.data__resto {
+  font-family: var(--sans);
+  font-size: 12px;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  margin-right: -.28em;
+  margin-top: 8px;
+}
+
+.hora {
+  font-variant-numeric: lining-nums;
+  font-size: 22px;
+  font-style: italic;
+  margin-top: 14px;
+  color: var(--tinta-suave);
+}
+
+.local {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  margin-right: -.24em;
+  margin-top: 26px;
+}
+
+.recepcao {
+  font-size: 21px;
+  font-style: italic;
+  margin-top: 8px;
+  color: var(--tinta-suave);
+}
+
+/* ---------- botão ---------- */
+.botao {
+  margin-top: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 14px 22px;
+  width: 100%;
+  max-width: 320px;
+  white-space: nowrap;
+  background: var(--salvia-escura);
+  color: #fff;
+  border-radius: 999px;
+  font-family: var(--sans);
+  font-size: clamp(12px, 3.4vw, 13px);
+  font-weight: 500;
+  letter-spacing: .01em;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(95,115,89,.28);
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.botao svg { width: 18px; height: 18px; fill: currentColor; flex: none; }
+.botao:hover { background: #53664e; transform: translateY(-1px); box-shadow: 0 10px 24px rgba(95,115,89,.32); }
+.botao:active { transform: translateY(0); }
+.botao:focus-visible { outline: 2px solid var(--tinta); outline-offset: 3px; }
+
+/* ---------- entrada suave ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  .conteudo > * { animation: surgir .9s ease both; }
+  .conteudo > :nth-child(2) { animation-delay: .12s; }
+  .conteudo > :nth-child(3) { animation-delay: .22s; }
+  .conteudo > :nth-child(4) { animation-delay: .3s; }
+  .conteudo > :nth-child(5) { animation-delay: .38s; }
+  .conteudo > :nth-child(6) { animation-delay: .46s; }
+  .conteudo > :nth-child(7) { animation-delay: .54s; }
+  .conteudo > :nth-child(8) { animation-delay: .66s; }
+  .flores { animation: florir 1.4s ease both; }
+  @keyframes surgir { from { opacity: 0; transform: translateY(8px); } }
+  @keyframes florir { from { opacity: 0; transform: scale(.97); } }
+}
+
+/* ---------- celulares pequenos ---------- */
+@media (max-width: 360px) {
+  .pagina { padding: 0; }
+  .convite { min-height: 100dvh; box-shadow: none; }
+  .convite::before { inset: 12px; }
+  .conteudo { padding: 128px 24px 120px; }
+  .botao { padding: 14px 16px; }
+}
+
+/* em telas de celular a página inteira vira o cartão */
+@media (max-width: 480px) {
+  body { background: var(--papel); }
+  .pagina { padding: 0; }
+  .convite { max-width: none; min-height: 100dvh; box-shadow: none; }
+}
