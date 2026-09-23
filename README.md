@@ -32,9 +32,9 @@ Elementos em aquarela e traço fino (PNG com fundo transparente, convertidos par
 
 - `assets/buque-topo.webp`: buquê do canto superior esquerdo
 - `assets/buque-base.webp`: buquê do canto inferior direito
-- `assets/ramo-traco.webp` e `assets/rosa-traco.webp`: desenhos em traço fino
+- `assets/rosa-traco.webp`: rosa em traço fino
 
-Posição e tamanho ficam em `styles.css` (`.buque--topo`, `.buque--base`, `.traco--ramo`, `.traco--rosa`).
+Posição e tamanho ficam em `styles.css` (`.buque--topo`, `.buque--base`, `.traco--rosa`).
 A imagem de prévia (`assets/og-image.jpg`) é gerada a partir de `og/og-template.html`.
 
 ## Música e fotos
