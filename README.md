@@ -42,6 +42,16 @@ Rosas brancas (recortadas do próprio buquê: `assets/rosa-1.webp` e `rosa-2.web
 Em `config.js`: `chuvaDeRosas: false` desliga, e `rosas` define quantas caem ao mesmo tempo (padrão 14).
 Quem usa o celular com "reduzir movimento" ativado não vê a animação.
 
+## Mural de recados
+
+Os convidados escrevem no próprio convite e o recado aparece nos slides na hora.
+Cada recado é salvo como um arquivo em `recados/` no **Vercel Blob** (função `api/recados.js`).
+
+**Ativar (uma vez só):** no painel da Vercel → projeto *caio-e-carol* → **Storage** → **Create** → **Blob** → dê um nome → **Connect** ao projeto (Production, Preview, Development). Depois faça **Redeploy** do último deploy.
+Enquanto não estiver ativado, o mural mostra só a mensagem de boas-vindas e o formulário fica escondido.
+
+**Apagar um recado:** Storage → Blob → pasta `recados/` → selecione o arquivo → Delete (some do site em até 1 minuto).
+
 ## Música e fotos
 
 - Música de abertura: `assets/musica.mp3` (Eu e Minha Casa · Julliany Souza & Léo Brandão, comprimida para 96 kbps). Toca quando o convidado toca em **Abrir convite**. Os celulares não deixam tocar som sozinho sem esse toque. O botão redondo no canto pausa ou volta a tocar.

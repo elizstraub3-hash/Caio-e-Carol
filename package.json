@@ -1,0 +1,8 @@
+{
+  "name": "caio-e-carol",
+  "private": true,
+  "description": "Convite online de casamento de Caio & Carol",
+  "dependencies": {
+    "@vercel/blob": "^2.8.0"
+  }
+}

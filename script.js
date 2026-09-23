@@ -170,3 +170,108 @@
 
   for (var i = 0; i < total; i++) criarRosa(sortear(0, 12));
 })();
+
+/* ---------- Mural de recados ---------- */
+(function () {
+  var trilho = document.querySelector(".js-recados-trilho");
+  var form = document.querySelector(".js-form-recado");
+  if (!trilho || !form) return;
+
+  var controles = document.querySelector(".recados__controles");
+  var contador = document.querySelector(".js-recados-contador");
+  var aviso = document.querySelector(".js-recado-aviso");
+  var contagem = document.querySelector(".js-recado-contagem");
+  var atual = 0;
+  var automatico = null;
+
+  var slides = function () { return trilho.querySelectorAll(".recado"); };
+
+  var criarSlide = function (r) {
+    var fig = document.createElement("figure");
+    fig.className = "recado";
+    var q = document.createElement("blockquote");
+    q.textContent = r.mensagem;
+    var c = document.createElement("figcaption");
+    c.textContent = r.nome;
+    fig.appendChild(q); fig.appendChild(c);
+    return fig;
+  };
+
+  var irPara = function (i) {
+    var lista = slides();
+    if (!lista.length) return;
+    atual = (i + lista.length) % lista.length;
+    trilho.scrollTo({ left: lista[atual].offsetLeft - (trilho.clientWidth - lista[atual].clientWidth) / 2, behavior: "smooth" });
+    atualizarContador();
+  };
+  var atualizarContador = function () {
+    var total = slides().length;
+    controles.hidden = total < 2;
+    contador.textContent = (atual + 1) + " / " + total;
+  };
+  var iniciarAuto = function () {
+    clearInterval(automatico);
+    if (slides().length < 2) return;
+    automatico = setInterval(function () { irPara(atual + 1); }, 6000);
+  };
+  var pararAuto = function () { clearInterval(automatico); };
+
+  // descobre o slide visível quando o convidado arrasta com o dedo
+  var t;
+  trilho.addEventListener("scroll", function () {
+    clearTimeout(t);
+    t = setTimeout(function () {
+      var centro = trilho.scrollLeft + trilho.clientWidth / 2, melhor = 0, dist = Infinity;
+      slides().forEach(function (s, i) {
+        var d = Math.abs(s.offsetLeft + s.clientWidth / 2 - centro);
+        if (d < dist) { dist = d; melhor = i; }
+      });
+      atual = melhor; atualizarContador();
+    }, 120);
+  });
+  ["touchstart", "pointerdown", "focusin"].forEach(function (ev) { trilho.addEventListener(ev, pararAuto, { passive: true }); });
+  document.querySelector(".js-recados-ant").addEventListener("click", function () { pararAuto(); irPara(atual - 1); });
+  document.querySelector(".js-recados-prox").addEventListener("click", function () { pararAuto(); irPara(atual + 1); });
+
+  var mostrar = function (recados) {
+    if (!recados.length) return;
+    trilho.innerHTML = "";
+    recados.forEach(function (r) { trilho.appendChild(criarSlide(r)); });
+    atual = 0; atualizarContador(); iniciarAuto();
+  };
+
+  fetch("/api/recados")
+    .then(function (r) { return r.json(); })
+    .then(function (dados) {
+      if (!dados.configurado) return; // mural ainda não ativado na Vercel
+      form.hidden = false;
+      mostrar(dados.recados || []);
+    })
+    .catch(function () {});
+
+  var textarea = form.querySelector("textarea");
+  textarea.addEventListener("input", function () { contagem.textContent = textarea.value.length + " / 300"; });
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var botao = form.querySelector("button[type=submit]");
+    var dados = { nome: form.nome.value, mensagem: form.mensagem.value, site: form.site.value };
+    botao.disabled = true; botao.textContent = "Enviando...";
+    aviso.textContent = "";
+    fetch("/api/recados", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(dados) })
+      .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+      .then(function (res) {
+        if (!res.ok) throw new Error(res.j.erro || "Erro");
+        if (res.j.recado) {
+          var inicial = trilho.querySelector(".recado--inicial");
+          if (inicial) inicial.remove();
+          trilho.insertBefore(criarSlide(res.j.recado), trilho.firstChild);
+          atual = 0; atualizarContador(); irPara(0); iniciarAuto();
+        }
+        form.reset(); contagem.textContent = "0 / 300";
+        aviso.textContent = "Recado enviado com carinho! 🤍";
+      })
+      .catch(function (err) { aviso.textContent = err.message && err.message !== "Erro" ? err.message : "Não foi possível enviar agora. Tente novamente."; })
+      .then(function () { botao.disabled = false; botao.textContent = "Enviar recado"; });
+  });
+})();

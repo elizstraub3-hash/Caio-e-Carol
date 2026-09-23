@@ -142,9 +142,14 @@
       </div>
 
       <dl class="lista">
-        <div><dt>Crianças até 6 anos</dt><dd>valor por kg</dd></div>
+        <div><dt>Crianças até 6 anos</dt><dd>valor por kg*</dd></div>
         <div><dt>Crianças acima de 6 anos</dt><dd>valor integral</dd></div>
       </dl>
+
+      <div class="criancas">
+        <p><strong>*Crianças até 6 anos:</strong> os pais pagam <strong>direto no restaurante</strong>, no dia, pelo valor por kg. Não é preciso fazer Pix para elas.</p>
+        <p>Mas <strong>o nome de cada criança deve ser passado aos noivos</strong> na confirmação, para entrar na lista.</p>
+      </div>
     </section>
 
     <!-- ================= CONFIRMAÇÃO ================= -->
@@ -154,8 +159,8 @@
       <p class="detalhe">A confirmação de todos os convidados é indispensável.</p>
 
       <ol class="passos">
-        <li><span>1</span><p>Chame os noivos no WhatsApp com <strong>o nome completo de cada pessoa</strong> que vai.</p></li>
-        <li><span>2</span><p>Faça o Pix de <strong>R$ 65,00 por pessoa</strong> para os noivos.</p></li>
+        <li><span>1</span><p>Chame os noivos no WhatsApp com <strong>o nome completo de cada pessoa</strong> que vai, <strong>incluindo as crianças</strong>.</p></li>
+        <li><span>2</span><p>Faça o Pix de <strong>R$ 65,00 por pessoa</strong> para os noivos (crianças até 6 anos pagam no restaurante).</p></li>
         <li><span>3</span><p>Envie o <strong>comprovante</strong> na mesma conversa. Pronto: seu lugar está garantido!</p></li>
       </ol>
       <a class="botao js-whatsapp" href="https://wa.me/" target="_blank" rel="noopener">
@@ -196,6 +201,41 @@
         <button class="polaroid" type="button" data-foto="assets/foto-3.webp"><img src="assets/foto-3.webp" alt="Mão de Carol com a aliança e um buquê de rosas vermelhas" loading="lazy" width="720" height="900"></button>
         <button class="polaroid polaroid--larga" type="button" data-foto="assets/foto-5.webp"><img src="assets/foto-5.webp" alt="Caio e Carol sorrindo no carro" loading="lazy" width="1000" height="750"></button>
       </div>
+    </section>
+
+    <!-- ================= MURAL DE RECADOS ================= -->
+    <section class="secao secao--destaque secao--recados" aria-labelledby="t-recados">
+      <p class="rotulo">Mural de recados</p>
+      <h2 class="titulo-script" id="t-recados">Deixe seu carinho</h2>
+
+      <div class="recados" aria-roledescription="carrossel" aria-label="Recados dos convidados">
+        <div class="recados__trilho js-recados-trilho" tabindex="0">
+          <figure class="recado recado--inicial">
+            <blockquote>Seja o primeiro a deixar um recado para os noivos. Cada palavra de carinho vai ficar guardada aqui. 🤍</blockquote>
+            <figcaption>Caio &amp; Carol</figcaption>
+          </figure>
+        </div>
+        <div class="recados__controles" hidden>
+          <button type="button" class="recados__seta js-recados-ant" aria-label="Recado anterior">‹</button>
+          <span class="recados__contador js-recados-contador" aria-live="polite"></span>
+          <button type="button" class="recados__seta js-recados-prox" aria-label="Próximo recado">›</button>
+        </div>
+      </div>
+
+      <form class="form-recado js-form-recado" hidden>
+        <label>
+          <span>Seu nome</span>
+          <input name="nome" type="text" maxlength="40" autocomplete="name" required>
+        </label>
+        <label>
+          <span>Seu recado</span>
+          <textarea name="mensagem" rows="4" maxlength="300" required placeholder="Escreva uma mensagem para Caio e Carol..."></textarea>
+          <small class="js-recado-contagem">0 / 300</small>
+        </label>
+        <input class="form-recado__armadilha" name="site" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="botao" type="submit">Enviar recado</button>
+        <p class="form-recado__aviso js-recado-aviso" role="status"></p>
+      </form>
     </section>
 
     <!-- ================= PRESENTE ================= -->

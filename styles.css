@@ -419,6 +419,20 @@ body.fechado { overflow: hidden; }
   margin-top: 4px;
 }
 
+/* crianças até 6 anos */
+.criancas {
+  width: 100%;
+  max-width: 340px;
+  margin-top: 16px;
+  padding: 14px 16px;
+  border-left: 3px solid var(--salvia);
+  background: #fafbf9;
+  text-align: left;
+}
+.criancas p { font-size: 17px; line-height: 1.45; color: #3a3a36; }
+.criancas p + p { margin-top: 8px; }
+.criancas strong { font-weight: 600; color: var(--tinta); }
+
 /* confirmação */
 .secao--destaque { background: var(--salvia-clara); }
 .secao--destaque::before { display: none; }
@@ -510,6 +524,112 @@ body.fechado { overflow: hidden; }
   position: absolute; right: 6px; bottom: 2px;
   font-size: 26px; line-height: 1; padding: 4px 8px; color: var(--tinta-suave);
 }
+
+/* mural de recados */
+.secao--recados + .secao::before { display: none; }
+.recados { width: 100%; max-width: 380px; }
+.recados__trilho {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding: 6px 7% 18px;
+  margin: 0 -32px;
+  scrollbar-width: none;
+}
+.recados__trilho::-webkit-scrollbar { display: none; }
+.recado {
+  flex: 0 0 86%;
+  scroll-snap-align: center;
+  background: #fff;
+  padding: 30px 24px 24px;
+  box-shadow: 0 2px 4px rgba(0,0,0,.04), 0 10px 24px rgba(40,50,35,.10);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 210px;
+  position: relative;
+}
+.recado::before {
+  content: "“";
+  position: absolute;
+  top: 2px; left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--serif);
+  font-size: 56px;
+  line-height: 1;
+  color: var(--salvia);
+}
+.recado blockquote {
+  font-size: 20px;
+  font-style: italic;
+  line-height: 1.45;
+  color: #3a3a36;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+.recado figcaption {
+  margin-top: 16px;
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--salvia-escura);
+}
+.recado figcaption::before { content: "— "; }
+.recados__controles {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 4px;
+}
+.recados__seta {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--salvia-escura);
+  color: var(--salvia-escura);
+  font-size: 22px;
+  line-height: 1;
+  background: #fff;
+}
+.recados__contador { font-family: var(--sans); font-size: 12px; letter-spacing: .12em; color: var(--tinta-suave); min-width: 60px; }
+
+.form-recado {
+  width: 100%;
+  max-width: 340px;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  text-align: left;
+}
+.form-recado label { width: 100%; display: flex; flex-direction: column; gap: 6px; position: relative; }
+.form-recado label > span {
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
+.form-recado input, .form-recado textarea {
+  width: 100%;
+  font: inherit;
+  font-size: 18px;
+  padding: 12px 14px;
+  border: 1px solid #cbd3c6;
+  border-radius: 4px;
+  background: #fff;
+  color: var(--tinta);
+  resize: vertical;
+}
+.form-recado input:focus, .form-recado textarea:focus { outline: 2px solid var(--salvia); outline-offset: 1px; border-color: var(--salvia); }
+.form-recado small { align-self: flex-end; font-family: var(--sans); font-size: 10px; color: var(--tinta-suave); }
+.form-recado .botao { margin-top: 4px; }
+.form-recado .botao[disabled] { opacity: .6; cursor: wait; }
+.form-recado__armadilha { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.form-recado__aviso { font-size: 18px; font-style: italic; color: var(--salvia-escura); text-align: center; min-height: 1.4em; }
 
 /* presente */
 .pix {
