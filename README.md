@@ -2,16 +2,13 @@
 
 Site estático (HTML + CSS + JS), sem banco de dados nem integrações. Pronto para a Vercel.
 
-## ⚠️ Campos para preencher
+## Configurações
 
 | O quê | Onde |
 |---|---|
-| Número do WhatsApp que recebe as confirmações | `config.js` → `whatsapp: ""` (ex.: `"5511987654321"`) |
-| URL definitiva do site | `index.html` → troque **todas** as ocorrências de `https://SEU-SITE.vercel.app` (4 linhas marcadas com `⚠️ PREENCHER`) |
-
-Enquanto o número estiver vazio, o botão ainda funciona: o WhatsApp abre com a mensagem escrita e pede para o convidado escolher o contato.
-
-A mensagem pronta também pode ser editada em `config.js`.
+| Número do WhatsApp que recebe as confirmações | `config.js` → `whatsapp` (atual: `554198706820`) |
+| Mensagem pronta | `config.js` → `mensagem` |
+| Endereço do site (prévia do link) | `index.html` → linhas com `https://caio-e-carol.vercel.app` |
 
 ## Publicar na Vercel
 
@@ -27,12 +24,16 @@ A mensagem pronta também pode ser editada em `config.js`.
 - O WhatsApp guarda a prévia em cache. Teste com um link que você **ainda não enviou**. Se precisar forçar a atualização, envie o link com `?v=2` no final.
 - Para conferir antes de enviar: https://www.opengraph.xyz ou o Sharing Debugger do Facebook.
 
-## Trocar as flores pelos seus elementos
+## Flores
 
-As flores estão em `assets/flores-topo.svg` (canto superior direito) e `assets/flores-base.svg` (canto inferior esquerdo).
-Para usar os seus PNGs com fundo transparente, salve-os em `assets/` e troque o `src` das duas tags `<img class="flores ...">` em `index.html`. Posição e tamanho são ajustados em `styles.css` (`.flores--topo` e `.flores--base`).
+Elementos em aquarela e traço fino (PNG com fundo transparente, convertidos para WebP para carregar rápido no celular):
 
-A imagem de prévia é gerada a partir de `og/og-template.html`. Se você trocar as flores, gere a imagem de novo (print de 1200×630) ou monte uma no seu editor com o mesmo tamanho e salve como `assets/og-image.jpg`.
+- `assets/buque-topo.webp`: buquê do canto superior esquerdo
+- `assets/buque-base.webp`: buquê do canto inferior direito
+- `assets/ramo-traco.webp` e `assets/rosa-traco.webp`: desenhos em traço fino
+
+Posição e tamanho ficam em `styles.css` (`.buque--topo`, `.buque--base`, `.traco--ramo`, `.traco--rosa`).
+A imagem de prévia (`assets/og-image.jpg`) é gerada a partir de `og/og-template.html`.
 
 ## Estrutura
 
