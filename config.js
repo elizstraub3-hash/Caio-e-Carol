@@ -2,12 +2,19 @@
    CONFIGURAÇÃO DO CONVITE: edite somente este arquivo
    ============================================================= */
 window.CONVITE = {
-  // ⚠️ PREENCHER: número que vai receber as confirmações.
-  // Formato: código do país + DDD + número, só dígitos.
-  // Exemplo: "5511987654321" (55 = Brasil, 11 = DDD).
-  // Enquanto estiver vazio, o WhatsApp abre e pede para o convidado escolher o contato.
+  // Número que recebe as confirmações.
+  // Formato: código do país + DDD + número, só dígitos (55 = Brasil, 41 = DDD).
   whatsapp: "554198706820",
 
   // Mensagem que aparece já escrita na conversa.
-  mensagem: "Olá! Recebi o convite de Caio e Carol e gostaria de confirmar minha presença. Meu nome é: "
+  // Os campos ajudam na contagem de adultos e crianças.
+  mensagem:
+    "Olá! Recebi o convite de Caio e Carol e gostaria de confirmar minha presença.\n\n" +
+    "Nome: \n" +
+    "Adultos: \n" +
+    "Crianças até 6 anos: \n" +
+    "Crianças acima de 6 anos: ",
+
+  // Chave Pix para presentes (só dígitos).
+  pix: "25109009000166"
 };

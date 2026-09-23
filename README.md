@@ -7,7 +7,9 @@ Site estático (HTML + CSS + JS), sem banco de dados nem integrações. Pronto p
 | O quê | Onde |
 |---|---|
 | Número do WhatsApp que recebe as confirmações | `config.js` → `whatsapp` (atual: `554198706820`) |
-| Mensagem pronta | `config.js` → `mensagem` |
+| Mensagem pronta (com campos de adultos e crianças) | `config.js` → `mensagem` |
+| Chave Pix de presente | `config.js` → `pix` |
+| Data/hora da contagem regressiva | `index.html` → `data-alvo="2026-10-31T12:30:00-03:00"` |
 | Endereço do site (prévia do link) | `index.html` → linhas com `https://caio-e-carol.vercel.app` |
 
 ## Publicar na Vercel
@@ -34,6 +36,12 @@ Elementos em aquarela e traço fino (PNG com fundo transparente, convertidos par
 
 Posição e tamanho ficam em `styles.css` (`.buque--topo`, `.buque--base`, `.traco--ramo`, `.traco--rosa`).
 A imagem de prévia (`assets/og-image.jpg`) é gerada a partir de `og/og-template.html`.
+
+## Música e fotos
+
+- Música de abertura: `assets/musica.mp3` (Eu e Minha Casa · Julliany Souza & Léo Brandão, comprimida para 96 kbps). Toca quando o convidado toca em **Abrir convite**. Os celulares não deixam tocar som sozinho sem esse toque. O botão redondo no canto pausa ou volta a tocar.
+- Mural do casal: `assets/foto-1.webp`, `foto-2.webp`, `foto-3.webp` (recortadas em 4:5 e clareadas). Para trocar, substitua os arquivos mantendo os nomes.
+- Os arquivos originais enviados (PNG, JPEG, MP3) ficam na raiz do repositório e não são publicados (`.vercelignore`).
 
 ## Estrutura
 
