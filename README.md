@@ -22,7 +22,7 @@ Site estático (HTML + CSS + JS), sem banco de dados nem integrações. Pronto p
 ## Prévia no WhatsApp
 
 - Título: **"Você recebeu um convite especial de Caio e de Carol"**
-- Imagem: `assets/og-image.jpg` (1200×630, com "Caio & Carol")
+- Imagem: `assets/og-casamento.jpg` (1200×630, com "Caio & Carol")
 - O WhatsApp guarda a prévia em cache. Teste com um link que você **ainda não enviou**. Se precisar forçar a atualização, envie o link com `?v=2` no final.
 - Para conferir antes de enviar: https://www.opengraph.xyz ou o Sharing Debugger do Facebook.
 
@@ -34,7 +34,7 @@ Buquês em aquarela (PNG com fundo transparente, convertidos para WebP para carr
 - `assets/buque-base.webp`: buquê do canto inferior direito da capa (e, espelhado, no rodapé)
 
 Posição e tamanho ficam em `styles.css` (`.buque--topo`, `.buque--base`, `.buque--rodape`).
-A imagem de prévia (`assets/og-image.jpg`) é gerada a partir de `og/og-template.html`.
+A imagem de prévia (`assets/og-casamento.jpg`) é gerada a partir de `og/og-template.html`.
 
 ## Chuva de rosas
 
