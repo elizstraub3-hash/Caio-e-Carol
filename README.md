@@ -45,7 +45,7 @@ Quem usa o celular com "reduzir movimento" ativado não vê a animação.
 ## Música e fotos
 
 - Música de abertura: `assets/musica.mp3` (Eu e Minha Casa · Julliany Souza & Léo Brandão, comprimida para 96 kbps). Toca quando o convidado toca em **Abrir convite**. Os celulares não deixam tocar som sozinho sem esse toque. O botão redondo no canto pausa ou volta a tocar.
-- Mural do casal: `assets/foto-1.webp`, `foto-2.webp`, `foto-3.webp` (recortadas em 4:5 e clareadas). Para trocar, substitua os arquivos mantendo os nomes.
+- Mural do casal: `assets/foto-1.webp` a `foto-8.webp` (clareadas; verticais em 4:5, e `foto-4` e `foto-5` na horizontal, em largura inteira). A ordem é definida em `index.html`, na `<div class="mural">`.
 - Os arquivos originais enviados (PNG, JPEG, MP3) ficam na raiz do repositório e não são publicados (`.vercelignore`).
 
 ## Estrutura

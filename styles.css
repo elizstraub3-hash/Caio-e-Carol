@@ -367,13 +367,17 @@ body.fechado { overflow: hidden; }
   background: #fff;
   padding: 8px 8px 28px;
   box-shadow: 0 2px 4px rgba(0,0,0,.06), 0 10px 24px rgba(40,50,35,.14);
-  transform: rotate(-3deg);
+  transform: rotate(-2.5deg);
   transition: transform .3s ease;
 }
-.polaroid:nth-child(2) { transform: rotate(2.5deg) translateY(14px); }
-.polaroid:nth-child(3) { grid-column: 1 / -1; width: 58%; justify-self: center; transform: rotate(-1.5deg); margin-top: 6px; }
-.polaroid:hover { transform: rotate(0) scale(1.02); }
+.polaroid:nth-child(odd) { transform: rotate(2deg) translateY(10px); }
+.polaroid--larga { grid-column: 1 / -1; transform: rotate(-1deg) !important; margin: 0 0 6px; }
+.polaroid--larga:last-child { transform: rotate(1.2deg) !important; margin: 18px 0 0; }
+/* última foto sozinha na linha: centralizada */
+.polaroid:not(.polaroid--larga):last-child:nth-child(even) { grid-column: 1 / -1; width: 58%; justify-self: center; transform: rotate(-1.5deg); }
+.polaroid:hover { transform: rotate(0) scale(1.02) !important; }
 .polaroid img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; height: auto; }
+.polaroid--larga img { aspect-ratio: 4 / 3; }
 
 .foto-ampliada {
   margin: auto;
