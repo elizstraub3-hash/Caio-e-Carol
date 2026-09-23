@@ -201,7 +201,7 @@
     var lista = slides();
     if (!lista.length) return;
     atual = (i + lista.length) % lista.length;
-    trilho.scrollTo({ left: lista[atual].offsetLeft - (trilho.clientWidth - lista[atual].clientWidth) / 2, behavior: "smooth" });
+    trilho.scrollTo({ left: lista[atual].offsetLeft - 20, behavior: "smooth" });
     atualizarContador();
   };
   var atualizarContador = function () {

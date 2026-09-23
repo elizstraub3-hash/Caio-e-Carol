@@ -20,6 +20,7 @@
 html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
 img { display: block; max-width: 100%; }
 button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+[hidden] { display: none !important; }
 
 body {
   min-height: 100vh;
@@ -527,21 +528,25 @@ body.fechado { overflow: hidden; }
 
 /* mural de recados */
 .secao--recados + .secao::before { display: none; }
-.recados { width: 100%; max-width: 380px; }
+.recados { width: 100%; max-width: 330px; }
 .recados__trilho {
+  position: relative;
   display: flex;
-  gap: 14px;
+  gap: 44px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
-  padding: 6px 7% 18px;
-  margin: 0 -32px;
+  scroll-padding-inline: 20px;
+  padding: 6px 20px 30px;
+  margin: 0 -20px;
   scrollbar-width: none;
 }
 .recados__trilho::-webkit-scrollbar { display: none; }
 .recado {
-  flex: 0 0 86%;
+  flex: 0 0 100%;
   scroll-snap-align: center;
+  align-items: center;
+  text-align: center;
   background: #fff;
   padding: 30px 24px 24px;
   box-shadow: 0 2px 4px rgba(0,0,0,.04), 0 10px 24px rgba(40,50,35,.10);
