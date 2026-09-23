@@ -14,7 +14,7 @@ window.CONVITE = {
     "Adultos: \n" +
     "Crianças até 6 anos: \n" +
     "Crianças acima de 6 anos: \n\n" +
-    "Vou fazer o Pix de R$ 65,00 por pessoa e envio o comprovante aqui.",
+    "Vou fazer o Pix de R$ 70,00 por pessoa e envio o comprovante aqui.",
 
   // Chuva de rosas: true liga, false desliga. "rosas" = quantas caem ao mesmo tempo.
   chuvaDeRosas: true,
